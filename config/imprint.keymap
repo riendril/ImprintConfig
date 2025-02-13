@@ -18,6 +18,16 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
+
+        caps_word_tap: caps_word_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "CAPS_WORD_TAP";
+            bindings = <&kp>, <&caps_word>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "hold-preferred";
+        };
     };
 
     keymap {
@@ -29,10 +39,10 @@
 &kp NON_US_BACKSLASH       &kp N1             &kp N2                &kp N3                &kp N4           &kp N5                                                  &kp N6                     &kp N7                     &kp N8            &kp N9      &kp N0             &kp MINUS
 &mt RIGHT_ALT TAB          &kp Q              &kp W                 &kp E                 &kp R            &kp T                                                   &kp Y                      &kp U                      &kp I             &kp O       &kp P              &kp LEFT_BRACKET
 &mt LCTRL ESCAPE           &kp A              &kp S                 &kp D                 &kp F            &kp G                                                   &kp H                      &kp J                      &kp K             &kp L       &kp SEMI           &kp SQT
-&kp LSHFT                  &kp Z              &kp X                 &kp C                 &kp V            &kp B                                                   &kp N                      &kp M                      &kp COMMA         &kp DOT     &kp FSLH           &kp RSHFT
+&caps_word_tap LSHFT 0     &kp Z              &kp X                 &kp C                 &kp V            &kp B                                                   &kp N                      &kp M                      &kp COMMA         &kp DOT     &kp FSLH           &kp RSHFT
                                               &kp LA(LEFT_CONTROL)  &kp LA(LEFT_GUI)                                                                                                                                     &none             &none
-                                                                                          &kp SPACE        &key_repeat                &layer_hold_or_toggle 4 4    &layer_hold_or_toggle 5 5  &kp ENTER                  &none
-                                                                                          &kp DELETE       &layer_hold_or_toggle 1 1  &kp LEFT_GUI                 &kp RIGHT_GUI              &layer_hold_or_toggle 2 2  &kp BACKSPACE
+                                                                                          &kp SPACE        &kp LEFT_SHIFT             &layer_hold_or_toggle 4 4    &layer_hold_or_toggle 5 5  &kp ENTER                  &kp RIGHT_GUI
+                                                                                          &kp DELETE       &layer_hold_or_toggle 1 1  &none                        &none                      &layer_hold_or_toggle 2 2  &kp BACKSPACE
             >;
         };
 
@@ -64,14 +74,14 @@
 
         text_input_nordrassil_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans     &trans                 &trans  &trans       &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans     &trans                 &trans  &trans       &trans  &trans  &trans  &trans
-&trans  &kp J   &kp Y   &kp O   &kp U      &kp MINUS              &kp Q   &kp G        &kp N   &kp W   &kp X   &trans
-&trans  &kp H   &kp I   &kp E   &kp A      &kp DOT                &kp P   &kp D        &kp R   &kp S   &kp L   &kp Z
-&trans  &kp K   &trans  &trans  &kp COMMA  &trans                 &kp B   &kp C        &kp M   &kp F   &kp V   &trans
-                &trans  &trans                                                         &trans  &trans
-                                &kp SPACE  &key_repeat  &trans    &trans  &key_repeat  &kp T
-                                &trans     &trans       &trans    &trans  &trans       &trans
+&trans  &trans  &trans  &trans  &trans     &trans               &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans     &trans               &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp J   &kp Y   &kp O   &kp U      &kp MINUS            &kp Q   &kp G   &kp N   &kp W   &kp X   &trans
+&trans  &kp H   &kp I   &kp E   &kp A      &kp DOT              &kp P   &kp D   &kp R   &kp S   &kp L   &kp Z
+&trans  &kp K   &trans  &trans  &kp COMMA  &trans               &kp B   &kp C   &kp M   &kp F   &kp V   &trans
+                &trans  &trans                                                  &trans  &trans
+                                &trans     &trans     &trans    &trans  &trans  &kp T
+                                &trans     &trans     &trans    &trans  &trans  &trans
             >;
         };
 
@@ -107,7 +117,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // this gets it to the default installation orientation,,,,,,,
+        // this gets it to the default installation orientation,,,,,,,,
         <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>;
 
     // activate layer 3 within 500ms of the trackball moving
@@ -118,12 +128,12 @@
 
 &trackball_central_listener {
     input-processors =
-        // this gets it to the default installation orientation,,,,,,,
+        // this gets it to the default installation orientation,,,,,,,,
         <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,
         <&zip_xy_scaler 1 3>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
