@@ -45,14 +45,14 @@
 
         default_layer {
             bindings = <
-&layer_hold_or_toggle 3 3  &kp C_VOLUME_DOWN  &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_VOLUME_UP  &none                                          &kp C_MUTE                 &kp C_PREVIOUS             &kp C_PLAY_PAUSE  &kp C_NEXT  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP
-&kp NON_US_BACKSLASH       &kp N1             &kp N2                &kp N3                &kp N4           &kp N5                                         &kp N6                     &kp N7                     &kp N8            &kp N9      &kp N0             &kp MINUS
-&mt RIGHT_ALT TAB          &kp Q              &kp W                 &kp E                 &kp R            &kp T                                          &kp Y                      &kp U                      &kp I             &kp O       &kp P              &kp LEFT_BRACKET
-&mt LCTRL ESCAPE           &kp A              &kp S                 &kp D                 &kp F            &kp G                                          &kp H                      &kp J                      &kp K             &kp L       &kp SEMI           &kp SQT
-&caps_word_tap LSHFT 0     &kp Z              &kp X                 &kp C                 &kp V            &kp B                                          &kp N                      &kp M                      &kp COMMA         &kp DOT     &kp FSLH           &kp RSHFT
-                                              &kp LA(LEFT_CONTROL)  &kp LA(LEFT_GUI)                                                                                                                            &none             &none
-                                                                                          &kp SPACE        &kp LEFT_SHIFT             &tog 3              &layer_hold_or_toggle 5 5  &kp ENTER                  &kp RIGHT_GUI
-                                                                                          &kp DELETE       &layer_hold_or_toggle 1 1  &kp LC(LEFT_ALT)    &kp LA(LEFT_GUI)           &layer_hold_or_toggle 2 2  &kp BACKSPACE
+&none                   &kp C_VOLUME_DOWN  &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_VOLUME_UP  &rgb_ug RGB_TOG                                &kp C_MUTE                 &kp C_PREVIOUS             &kp C_PLAY_PAUSE  &kp C_NEXT  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP
+&kp NON_US_BACKSLASH    &kp N1             &kp N2                &kp N3                &kp N4           &kp N5                                         &kp N6                     &kp N7                     &kp N8            &kp N9      &kp N0             &kp MINUS
+&mt RIGHT_ALT TAB       &kp Q              &kp W                 &kp E                 &kp R            &kp T                                          &kp Y                      &kp U                      &kp I             &kp O       &kp P              &kp LEFT_BRACKET
+&mt LCTRL ESCAPE        &kp A              &kp S                 &kp D                 &kp F            &kp G                                          &kp H                      &kp J                      &kp K             &kp L       &kp SEMI           &kp SQT
+&caps_word_tap LSHFT 0  &kp Z              &kp X                 &kp C                 &kp V            &kp B                                          &kp N                      &kp M                      &kp COMMA         &kp DOT     &kp FSLH           &kp RIGHT_SHIFT
+                                           &kp LA(LEFT_CONTROL)  &kp LA(LEFT_GUI)                                                                                                                            &none             &none
+                                                                                       &kp SPACE        &kp LEFT_SHIFT             &tog 3              &layer_hold_or_toggle 5 5  &kp ENTER                  &sk RIGHT_GUI
+                                                                                       &none            &layer_hold_or_toggle 1 1  &kp LC(LEFT_ALT)    &kp LA(LEFT_GUI)           &layer_hold_or_toggle 2 2  &kp BACKSPACE
             >;
         };
 
@@ -127,19 +127,20 @@
 
 &trackball_peripheral_listener {
     input-processors =
-    // activate layer 5 within 500ms of the trackball moving
-    <&zip_temp_layer 5 500>;
+        // activate layer 5 within 500ms of the trackball moving,
+        <&zip_temp_layer 5 500>;
 };
 
 //left hand trackball configuration
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 5 (make it slower for scrolling),,,,,,,,,,
+        // multiply sensitivity by 1, divide by 5 (make it slower for scrolling),,,,,,,,,,,
         <&zip_xy_scaler 1 5>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        <&zip_scroll_scaler 1 8>,  // This specifically scales the scroll events
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,
+        <&zip_scroll_scaler 1 8>,
+        // This specifically scales the scroll events,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
