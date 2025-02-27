@@ -62,7 +62,7 @@
         compatible = "zmk,combos";
 
         toggle_text-input-layer {
-            bindings = <&tog 3>;
+            bindings = <&tog 1>;
             key-positions = <41 42>;
         };
     };
@@ -78,34 +78,8 @@
 &mt LCTRL ESCAPE        &kp A            &hrm_left LEFT_CONTROL S        &hrm_left LEFT_ALT D  &hrm_left LEFT_GUI F  &kp G                     &kp H           &hrm_right LEFT_GUI J  &hrm_right LEFT_ALT K  &hrm_right LEFT_CONTROL L  &kp SEMI           &kp SQT
 &caps_word_tap LSHFT 0  &kp Z            &kp X                           &kp C                 &kp V                 &kp B                     &kp N           &kp M                  &kp COMMA              &kp DOT                    &kp FSLH           &kp RIGHT_SHIFT
                                          &none                           &none                                                                                                        &none                  &none
-                                                                                               &kp SPACE             &kp LEFT_SHIFT   &mo 0    &mo 5           &kp ENTER              &kp T
-                                                                                               &mo 1                 &none            &none    &none           &mo 2                  &kp BACKSPACE
-            >;
-        };
-
-        symbol-layer {
-            bindings = <
-&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5            &kp F6      &kp F7            &kp F8            &kp F9            &kp F10               &kp F11
-&trans  &trans  &trans  &trans  &trans  &trans            &trans      &trans            &trans            &trans            &trans                &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans      &kp LA(NUMBER_5)  &kp LA(NUMBER_6)  &kp LA(NUMBER_7)  &kp LS(NUMBER_6)      &kp RIGHT_BRACKET
-&trans  &trans  &trans  &trans  &trans  &trans            &kp LS(N7)  &kp LA(NUMBER_8)  &kp LA(NUMBER_9)  &kp LA(L)         &kp LS(LA(NUMBER_7))  &kp BACKSLASH
-&trans  &trans  &trans  &trans  &trans  &trans            &trans      &kp LA(NUMBER_5)  &kp LA(NUMBER_6)  &kp LA(NUMBER_7)  &kp LS(NUMBER_6)      &trans
-                &trans  &trans                                                          &trans            &trans
-                                &trans  &trans  &trans    &trans      &trans            &trans
-                                &trans  &trans  &trans    &trans      &trans            &trans
-            >;
-        };
-
-        nav-layer {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans            &trans          &trans          &trans        &trans           &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans          &trans          &trans        &trans           &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans          &trans          &trans        &trans           &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans          &trans          &trans        &trans           &trans  &trans
-                &trans  &trans                                                            &trans        &trans
-                                &trans  &trans  &trans    &trans          &trans          &trans
-                                &trans  &trans  &trans    &trans          &trans          &trans
+                                                                                               &kp SPACE             &kp LEFT_SHIFT   &mo 4    &mo 5           &kp ENTER              &kp T
+                                                                                               &mo 3                 &none            &none    &none           &none                  &kp BACKSPACE
             >;
         };
 
@@ -119,6 +93,32 @@
                 &trans  &trans                                                  &trans  &trans
                                 &trans     &trans     &trans    &trans  &trans  &trans
                                 &trans     &trans     &trans    &trans  &trans  &trans
+            >;
+        };
+
+        symbol-layer {
+            bindings = <
+&trans  &kp F1                &kp F2            &kp F3             &kp F4                &kp F5                 &kp F6                &kp F7            &kp F8            &kp F9            &kp F10           &kp F11
+&trans  &trans                &trans            &trans             &trans                &trans                 &trans                &trans            &trans            &trans            &trans            &trans
+&trans  &trans                &kp LA(NUMBER_7)  &kp LS(NUMBER_2)   &kp LS(NUMBER_1)      &kp AT_SIGN            &kp LS(MINUS)         &kp LA(NUMBER_5)  &kp LA(NUMBER_6)  &kp BACKSLASH     &trans            &kp RIGHT_BRACKET
+&trans  &kp LA(LS(NUMBER_7))  &kp SLASH         &kp LS(NUMBER_0)   &kp RIGHT_BRACKET     &kp TILDE              &kp NON_US_BACKSLASH  &kp LS(NUMBER_8)  &kp LS(NUMBER_9)  &kp LS(NUMBER_4)  &kp LS(NUMBER_5)  &kp BACKSLASH
+&trans  &kp LEFT_BRACKET      &kp LS(NUMBER_6)  &kp LS(BACKSLASH)  &kp LS(LEFT_BRACKET)  &trans                 &kp LS(NUMBER_7)      &kp LA(NUMBER_8)  &kp LA(NUMBER_9)  &kp LA(NUMBER_7)  &kp LS(NUMBER_6)  &trans
+                              &trans            &trans                                                                                                  &trans            &trans
+                                                                   &trans                &trans       &trans    &trans                &trans            &trans
+                                                                   &trans                &trans       &trans    &trans                &trans            &trans
+            >;
+        };
+
+        nav-layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans            &trans          &trans          &trans        &trans           &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans          &trans          &trans        &trans           &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans          &trans          &trans        &trans           &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans          &trans          &trans        &trans           &trans  &trans
+                &trans  &trans                                                            &trans        &trans
+                                &trans  &trans  &trans    &trans          &trans          &trans
+                                &trans  &trans  &trans    &trans          &trans          &trans
             >;
         };
 
@@ -154,7 +154,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // activate layer 5 within 500ms of the trackball moving,,,,,
+        // activate layer 5 within 500ms of the trackball moving,,,,,,
         <&zip_temp_layer 5 500>;
 };
 
@@ -162,12 +162,12 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 5 (make it slower for scrolling),,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 5 (make it slower for scrolling),,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 5>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
         <&zip_scroll_scaler 1 8>,
-        // This specifically scales the scroll events,,,,,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,
+        // This specifically scales the scroll events,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
