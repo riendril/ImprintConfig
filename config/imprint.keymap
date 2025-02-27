@@ -63,7 +63,7 @@
 
         toggle_text-input-layer {
             bindings = <&tog 1>;
-            key-positions = <41 42>;
+            key-positions = <41 42 49>;
         };
     };
 
@@ -78,7 +78,7 @@
 &mt LCTRL ESCAPE        &kp A            &hrm_left LEFT_CONTROL S        &hrm_left LEFT_ALT D  &hrm_left LEFT_GUI F  &kp G                     &kp H           &hrm_right LEFT_GUI J  &hrm_right LEFT_ALT K  &hrm_right LEFT_CONTROL L  &kp SEMI           &kp SQT
 &caps_word_tap LSHFT 0  &kp Z            &kp X                           &kp C                 &kp V                 &kp B                     &kp N           &kp M                  &kp COMMA              &kp DOT                    &kp FSLH           &kp RIGHT_SHIFT
                                          &none                           &none                                                                                                        &none                  &none
-                                                                                               &kp SPACE             &kp LEFT_SHIFT   &mo 4    &mo 5           &kp ENTER              &kp T
+                                                                                               &kp SPACE             &mo 3            &mo 4    &mo 5           &kp ENTER              &kp T
                                                                                                &mo 2                 &none            &none    &none           &none                  &kp BACKSPACE
             >;
         };
@@ -154,7 +154,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // activate layer 5 within 500ms of the trackball moving,,,,,,,
+        // activate layer 5 within 500ms of the trackball moving,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
 
@@ -162,12 +162,12 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 5 (make it slower for scrolling),,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 5 (make it slower for scrolling),,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 5>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
         <&zip_scroll_scaler 1 8>,
-        // This specifically scales the scroll events,,,,,,,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,
+        // This specifically scales the scroll events,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
