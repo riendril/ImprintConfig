@@ -62,8 +62,8 @@
         compatible = "zmk,combos";
 
         toggle_text-input-layer {
-            bindings = <&tog 2>;
-            key-positions = <41 42>;
+            bindings = <&tog 1>;
+            key-positions = <52 55>;
         };
     };
 
@@ -154,7 +154,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // activate layer 5 within 500ms of the trackball moving,,,,,,,,,,
+        // activate layer 5 within 500ms of the trackball moving,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
 
@@ -162,12 +162,12 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 5 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 5 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 5>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
         <&zip_scroll_scaler 1 8>,
-        // This specifically scales the scroll events,,,,,,,,,,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,
+        // This specifically scales the scroll events,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
