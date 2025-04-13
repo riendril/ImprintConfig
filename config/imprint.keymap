@@ -79,21 +79,20 @@
 &kp LSHFT         &kp Z            &kp X                           &kp C                 &kp V                 &kp B                     &kp N           &kp M                  &kp COMMA              &kp DOT                    &kp FSLH           &caps_word_tap RIGHT_SHIFT 0
                                    &none                           &none                                                                                                        &none                  &none
                                                                                          &kp SPACE             &mo 2            &mo 4    &mo 5           &kp ENTER              &kp T
-                                                                                         &mo 3                 &tog 1           &none    &none           &tog 1                 &kp BACKSPACE
+                                                                                         &mo 3                 &none            &none    &none           &none                  &kp BACKSPACE
             >;
         };
 
         text-input-nordrassil-layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans     &trans               &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans     &trans               &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp J   &kp Z   &kp O   &kp U      &kp SLASH            &kp Q   &kp G   &kp N   &kp W   &kp X   &trans
-&trans  &kp H   &kp I   &kp E   &kp A      &kp DOT              &kp P   &kp D   &kp R   &kp S   &kp L   &kp Y
-&trans  &kp K   &none   &none   &kp COMMA  &trans               &kp B   &kp C   &kp M   &kp F   &kp V   &trans
-                &trans  &trans                                                  &trans  &trans
-                                &trans     &trans     &trans    &trans  &trans  &trans
-                                &trans     &trans     &trans    &trans  &trans  &trans
-                                &trans     &trans     &trans    &trans  &trans  &kp LA(BACKSPACE)
+&trans  &trans  &trans     &trans     &trans     &trans                   &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans     &trans     &trans     &trans                   &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp J   &kp Z      &kp O      &kp U      &kp SLASH                &kp Q   &kp G   &kp N   &kp W   &kp X   &trans
+&trans  &kp H   &kp I      &kp E      &kp A      &kp DOT                  &kp P   &kp D   &kp R   &kp S   &kp L   &kp Y
+&trans  &kp K   &kp LA(N)  &kp LA(C)  &kp COMMA  &kp LS(COMMA)            &kp B   &kp C   &kp M   &kp F   &kp V   &trans
+                &trans     &trans                                                         &trans  &trans
+                                      &trans     &trans         &trans    &trans  &trans  &trans
+                                      &trans     &trans         &trans    &trans  &trans  &kp LA(BACKSPACE)
             >;
         };
 
@@ -115,8 +114,8 @@
 &trans  &trans        &trans        &trans        &trans        &trans            &trans          &trans          &trans        &trans           &trans  &trans
 &trans  &trans        &trans        &trans        &trans        &trans            &trans          &trans          &trans        &trans           &trans  &trans
 &trans  &trans        &kp NUMBER_8  &kp NUMBER_3  &kp NUMBER_4  &trans            &trans          &trans          &trans        &trans           &trans  &trans
-&trans  &kp NUMBER_7  &kp NUMBER_0  &kp NUMBER_1  &kp NUMBER_2  &trans            &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans  &trans
-&trans  &trans        &kp NUMBER_9  &kp NUMBER_5  &kp NUMBER_6  &trans            &trans          &trans          &trans        &trans           &trans  &trans
+&trans  &kp NUMBER_7  &kp NUMBER_2  &kp NUMBER_0  &kp NUMBER_1  &kp NUMBER_9      &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans  &trans
+&trans  &trans        &trans        &kp NUMBER_5  &kp NUMBER_6  &trans            &trans          &trans          &trans        &trans           &trans  &trans
                       &trans        &trans                                                                        &trans        &trans
                                                   &trans        &trans  &trans    &trans          &trans          &trans
                                                   &trans        &trans  &trans    &trans          &trans          &trans
