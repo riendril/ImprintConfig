@@ -56,6 +56,17 @@
             hold-trigger-on-release;
             hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 39 40 41 48 49 50 51 52 53 60 61 64 65 64 65 66 67 68 69 70 71 72 73 74 75 59>;
         };
+
+        sticky: sticky {
+            compatible = "zmk,behavior-sticky-key";
+            label = "STICKY";
+            bindings = <&kp>;
+            #binding-cells = <1>;
+            quick-release;
+            lazy;
+            ignore-modifiers;
+            release-after-ms = <200>;
+        };
     };
 
     combos {
@@ -64,6 +75,32 @@
         toggle_text-input-layer {
             bindings = <&tog 1>;
             key-positions = <52 55>;
+        };
+
+        chord_1 {
+            bindings = <&chord_the>;
+            key-positions = <39 44>;
+        };
+
+        chord_2 {
+            bindings = <&chord_of>;
+            key-positions = <40 43>;
+        };
+    };
+
+    macros {
+        chord_the: chord_the {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp T &kp H &kp E &kp SPACE>;
+            label = "CHORD_THE";
+        };
+
+        chord_of: chord_of {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp O &kp F &kp SPACE>;
+            label = "CHORD_OF";
         };
     };
 
@@ -154,7 +191,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // activate layer 5 within 500ms of the trackball moving,,,,,,,,,,,,,,,
+        // activate layer 5 within 500ms of the trackball moving,,,,,,,,,,,,,,,,
         <&zip_temp_layer 5 500>;
 };
 
@@ -162,12 +199,12 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 5 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 5 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 5>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
         <&zip_scroll_scaler 1 15>,
-        // This specifically scales the scroll events,,,,,,,,,,,,,,,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,
+        // This specifically scales the scroll events,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
