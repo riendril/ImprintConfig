@@ -6,6 +6,12 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
 
+&sk {
+    quick-release;
+    lazy;
+    release-after-ms = <500>;
+};
+
 / {
     chosen { zmk,matrix-transform = &imprint_function_row; };
 
@@ -57,17 +63,6 @@
             hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 39 40 41 48 49 50 51 52 53 60 61 64 65 64 65 66 67 68 69 70 71 72 73 74 75 59>;
         };
 
-        sticky: sticky {
-            compatible = "zmk,behavior-sticky-key";
-            label = "STICKY";
-            bindings = <&kp>;
-            #binding-cells = <1>;
-            quick-release;
-            lazy;
-            ignore-modifiers;
-            release-after-ms = <1000>;
-        };
-
         chord_1_the: chord_1_the {
             compatible = "zmk,behavior-mod-morph";
             label = "CHORD_1_THE";
@@ -75,15 +70,6 @@
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
-        };
-
-        sticky_hold_tap: sticky_hold_tap {
-            compatible = "zmk,behavior-hold-tap";
-            label = "STICKY_HOLD_TAP";
-            bindings = <&kp>, <&sticky>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
         };
 
         hrl_right: hrl_right {
@@ -148,18 +134,18 @@
 
         default-layer {
             bindings = <
-&rgb_ug RGB_BRD                    &rgb_ug RGB_BRI  &rgb_ug RGB_COLOR_HSB(0,100,5)  &rgb_ug RGB_EFR       &rgb_ug RGB_TOG       &rgb_ug RGB_EFF            &kp C_PREVIOUS  &kp C_PLAY_PAUSE       &kp C_NEXT             &kp C_MUTE                 &kp C_VOLUME_DOWN       &kp C_VOLUME_UP
-&kp GRAVE                          &trans           &trans                          &trans                &trans                &trans                     &trans          &trans                 &trans                 &trans                     &trans                  &kp MINUS
-&kp TAB                            &kp Q            &kp W                           &kp E                 &kp R                 &kp T                      &kp Y           &kp U                  &kp I                  &kp O                      &kp P                   &kp LEFT_BRACKET
-&kp ESCAPE                         &kp A            &hrm_left LEFT_CONTROL S        &hrm_left LEFT_ALT D  &hrm_left LEFT_GUI F  &kp G                      &kp H           &hrm_right LEFT_GUI J  &hrm_right LEFT_ALT K  &hrm_right LEFT_CONTROL L  &hrl_right 4 SEMICOLON  &kp SINGLE_QUOTE
-&sticky_hold_tap LSHFT LEFT_SHIFT  &kp Z            &kp X                           &kp C                 &kp V                 &kp B                      &kp N           &kp M                  &kp COMMA              &kp DOT                    &kp SLASH               &sticky_hold_tap RIGHT_SHIFT RIGHT_SHIFT
-                                                    &trans                          &trans                                                                                                        &trans                 &trans
-                                                                                                          &kp SPACE             &mo 3            &mo 5     &mo 6           &kp LEFT_ALT           &kp LA(BACKSPACE)
-                                                                                                          &kp ENTER             &trans           &trans    &trans          &trans                 &kp BACKSPACE
+&rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_COLOR_HSB(0,100,5)  &rgb_ug RGB_EFR       &rgb_ug RGB_TOG       &rgb_ug RGB_EFF            &kp C_PREVIOUS  &kp C_PLAY_PAUSE       &kp C_NEXT             &kp C_MUTE                 &kp C_VOLUME_DOWN       &kp C_VOLUME_UP
+&kp GRAVE        &trans           &trans                          &trans                &trans                &trans                     &trans          &trans                 &trans                 &trans                     &trans                  &kp MINUS
+&kp TAB          &kp Q            &kp W                           &kp E                 &kp R                 &kp T                      &kp Y           &kp U                  &kp I                  &kp O                      &kp P                   &kp LEFT_BRACKET
+&kp ESCAPE       &kp A            &hrm_left LEFT_CONTROL S        &hrm_left LEFT_ALT D  &hrm_left LEFT_GUI F  &kp G                      &kp H           &hrm_right LEFT_GUI J  &hrm_right LEFT_ALT K  &hrm_right LEFT_CONTROL L  &hrl_right 4 SEMICOLON  &kp SINGLE_QUOTE
+&sk LEFT_SHIFT   &kp Z            &kp X                           &kp C                 &kp V                 &kp B                      &kp N           &kp M                  &kp COMMA              &kp DOT                    &kp SLASH               &sk RIGHT_SHIFT
+                                  &trans                          &trans                                                                                                        &trans                 &trans
+                                                                                        &kp SPACE             &mo 3            &mo 5     &mo 6           &sk LEFT_ALT           &kp LA(BACKSPACE)
+                                                                                        &kp ENTER             &trans           &trans    &trans          &trans                 &kp BACKSPACE
             >;
         };
 
-        compatibility-layer {
+        macos-qwertz-default-layer {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans            &trans
 &trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans            &trans
@@ -172,7 +158,7 @@
             >;
         };
 
-        german-macos-compatible-symbols {
+        macos-qwertz-symbol-layer {
             bindings = <
 &trans  &kp F1                &kp F2            &kp F3            &kp F4                    &kp F5               &kp F6     &kp F7            &kp F8            &kp F9                 &kp F10           &kp F11
 &trans  &trans                &trans            &trans            &trans                    &trans               &trans     &trans            &trans            &trans                 &trans            &trans
@@ -243,7 +229,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // activate layer 6 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate layer 6 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 6 500>;
 };
 
@@ -251,12 +237,12 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 5 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 5 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 5>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
         <&zip_scroll_scaler 1 15>,
-        // This specifically scales the scroll events,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // This specifically scales the scroll events,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
