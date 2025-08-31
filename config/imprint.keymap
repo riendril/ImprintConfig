@@ -139,7 +139,7 @@
         default-layer {
             bindings = <
 &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_COLOR_HSB(0,100,5)  &rgb_ug RGB_EFR       &rgb_ug RGB_TOG       &rgb_ug RGB_EFF            &kp C_PREVIOUS  &kp C_PLAY_PAUSE       &kp C_NEXT             &kp C_MUTE                 &kp C_VOLUME_DOWN       &kp C_VOLUME_UP
-&kp GRAVE        &trans           &trans                          &trans                &trans                &trans                     &trans          &trans                 &trans                 &trans                     &trans                  &kp MINUS
+&kp GRAVE        &kp N1           &kp N2                          &kp N3                &kp N4                &kp N5                     &kp N6          &kp N7                 &kp N8                 &kp N9                     &kp N0                  &kp MINUS
 &kp TAB          &kp Q            &kp W                           &kp E                 &kp R                 &kp T                      &kp Y           &kp U                  &kp I                  &kp O                      &kp P                   &kp LEFT_BRACKET
 &kp ESCAPE       &kp A            &hrm_left LEFT_CONTROL S        &hrm_left LEFT_ALT D  &hrm_left LEFT_GUI F  &kp G                      &kp H           &hrm_right LEFT_GUI J  &hrm_right LEFT_ALT K  &hrm_right LEFT_CONTROL L  &hrl_right 4 SEMICOLON  &kp SINGLE_QUOTE
 &sk LEFT_SHIFT   &kp Z            &kp X                           &kp C                 &kp V                 &kp B                      &kp N           &kp M                  &kp COMMA              &kp DOT                    &kp SLASH               &sk RIGHT_SHIFT
@@ -246,7 +246,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // activate layer 6 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate layer 6 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 6 500>;
 };
 
@@ -254,12 +254,12 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 5 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 5 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 5>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
         <&zip_scroll_scaler 1 15>,
-        // This specifically scales the scroll events,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // This specifically scales the scroll events,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
