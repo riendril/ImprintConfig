@@ -89,9 +89,9 @@
     combos {
         compatible = "zmk,combos";
 
-        toggle_text-input-layer {
+        toggle_win-qwertz-layers {
             bindings = <&tog 1>;
-            key-positions = <52 55>;
+            key-positions = <51 56>;
         };
 
         chord_1 {
@@ -104,9 +104,14 @@
             key-positions = <48 59>;
         };
 
-        gaming-toggle {
+        toggle_gaming-layer {
             bindings = <&tog 7>;
-            key-positions = <51 56>;
+            key-positions = <52 55>;
+        };
+
+        toggle_macos-qwertz-layers {
+            bindings = <&tog 8>;
+            key-positions = <50 57>;
         };
     };
 
@@ -149,7 +154,7 @@
             >;
         };
 
-        macos-qwertz-default-layer {
+        win-qwertz_default-layer {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans                  &trans  &trans            &trans
 &trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans                  &trans  &trans            &trans
@@ -162,7 +167,7 @@
             >;
         };
 
-        macos-qwertz-symbol-layer {
+        win-qwertz_symbol-layer {
             bindings = <
 &trans  &kp F1                &kp F2            &kp F3            &kp F4                    &kp F5               &kp F6     &kp F7            &kp F8            &kp F9                 &kp F10           &kp F11
 &trans  &trans                &trans            &trans            &trans                    &trans               &trans     &trans            &trans            &trans                 &trans            &trans
@@ -239,6 +244,32 @@
                                 &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
+
+        macos-qwertz_default-layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans                  &trans  &trans            &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans                  &trans  &trans            &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans                  &trans  &trans            &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &hrm_right RIGHT_ALT K  &trans  &kp LS(MINUS)     &kp LS(BACKSLASH)
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans                  &trans  &kp LS(NUMBER_7)  &trans
+                &trans  &trans                                            &trans                  &trans
+                                &trans  &mo 2   &trans    &trans  &mo 2   &trans
+                                &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+        };
+
+        macos-qwertz-symbol-layer {
+            bindings = <
+&trans  &kp F1                &kp F2            &kp F3            &kp F4                    &kp F5               &kp F6     &kp F7            &kp F8            &kp F9                 &kp F10           &kp F11
+&trans  &trans                &trans            &trans            &trans                    &trans               &trans     &trans            &trans            &trans                 &trans            &trans
+&trans  &trans                &kp LA(NUMBER_7)  &trans            &trans                    &kp LA(L)            &trans     &kp LA(NUMBER_8)  &kp LA(NUMBER_9)  &kp BACKSLASH          &kp EQUAL         &trans
+&trans  &kp LS(SLASH)         &kp SLASH         &kp LS(NUMBER_0)  &kp RIGHT_BRACKET         &kp LA(N)            &kp GRAVE  &kp LS(NUMBER_8)  &kp LS(NUMBER_9)  &kp LS(NUMBER_4)       &trans            &trans
+&trans  &kp NON_US_BACKSLASH  &kp LS(NUMBER_6)  &trans            &kp LS(NON_US_BACKSLASH)  &kp LA(E)            &trans     &kp LA(NUMBER_5)  &kp LA(NUMBER_6)  &kp LS(RIGHT_BRACKET)  &kp LS(NUMBER_5)  &trans
+                              &trans            &trans                                                                                        &trans            &trans
+                                                                  &trans                    &trans     &trans    &trans     &trans            &trans
+                                                                  &trans                    &trans     &trans    &trans     &trans            &trans
+            >;
+        };
     };
 };
 
@@ -246,7 +277,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // activate layer 6 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate layer 6 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 6 500>;
 };
 
@@ -254,12 +285,12 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 5 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 5 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 5>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
         <&zip_scroll_scaler 1 15>,
-        // This specifically scales the scroll events,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // This specifically scales the scroll events,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
