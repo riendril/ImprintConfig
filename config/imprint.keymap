@@ -34,9 +34,9 @@
             flavor = "hold-preferred";
         };
 
-        hrm_left: hrm_left {
+        lhr_mods: lhr_mods {
             compatible = "zmk,behavior-hold-tap";
-            label = "HRM_LEFT";
+            label = "LHR_MODS";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
@@ -48,9 +48,9 @@
             hold-trigger-on-release;
         };
 
-        hrm_right: hrm_right {
+        rhr_mods: rhr_mods {
             compatible = "zmk,behavior-hold-tap";
-            label = "HRM_RIGHT";
+            label = "RHR_MODS";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
@@ -71,9 +71,9 @@
             mods = <(MOD_LSFT)>;
         };
 
-        hrl_right: hrl_right {
+        hr_arrows: hr_arrows {
             compatible = "zmk,behavior-hold-tap";
-            label = "HRL_RIGHT";
+            label = "HR_ARROWS";
             bindings = <&mo>, <&kp>;
 
             #binding-cells = <2>;
@@ -82,12 +82,12 @@
             require-prior-idle-ms = <120>;
             flavor = "balanced";
             hold-trigger-on-release;
-            hold-trigger-key-positions = <59 45 44 43 42>;
+            hold-trigger-key-positions = <59 45 44 43 42 37 38 39 40 48>;
         };
 
-        hrl_left: hrl_left {
+        hr_numbers: hr_numbers {
             compatible = "zmk,behavior-hold-tap";
-            label = "HRL_LEFT";
+            label = "HR_NUMBERS";
             bindings = <&mo>, <&kp>;
 
             #binding-cells = <2>;
@@ -96,7 +96,7 @@
             require-prior-idle-ms = <120>;
             flavor = "balanced";
             hold-trigger-on-release;
-            hold-trigger-key-positions = <64 65 64 65 66 67 68 69 70 71 72 73 74 75 59 57 6 7 8 9 18 19 20 21 30 31 32 33 42 43 44 45 54 55 56 57 62 63 69 9 10 11 21 22 23 33 34 35 45 46 47 57 58 59 64 48>;
+            hold-trigger-key-positions = <31 32 33 43 44 45 55 56 57 46>;
         };
     };
 
@@ -157,25 +157,25 @@
 
         default-layer {
             bindings = <
-&rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_COLOR_HSB(0,100,5)  &rgb_ug RGB_EFR       &rgb_ug RGB_TOG       &rgb_ug RGB_EFF            &kp C_PREVIOUS  &kp C_PLAY_PAUSE       &kp C_NEXT             &kp C_MUTE                 &kp C_VOLUME_DOWN       &kp C_VOLUME_UP
-&kp GRAVE        &kp N1           &kp N2                          &kp N3                &kp N4                &kp N5                     &kp N6          &kp N7                 &kp N8                 &kp N9                     &kp N0                  &kp MINUS
-&kp TAB          &kp Q            &kp W                           &kp E                 &kp R                 &kp T                      &kp Y           &kp U                  &kp I                  &kp O                      &kp P                   &kp LEFT_BRACKET
-&kp ESCAPE       &hrl_left 5 A    &hrm_left LEFT_CONTROL S        &hrm_left LEFT_ALT D  &hrm_left LEFT_GUI F  &kp G                      &kp H           &hrm_right LEFT_GUI J  &hrm_right LEFT_ALT K  &hrm_right LEFT_CONTROL L  &hrl_right 6 SEMICOLON  &kp SINGLE_QUOTE
-&sk LEFT_SHIFT   &kp Z            &kp X                           &kp C                 &kp V                 &kp B                      &kp N           &kp M                  &kp COMMA              &kp DOT                    &kp SLASH               &sk RIGHT_SHIFT
-                                  &trans                          &trans                                                                                                        &trans                 &trans
-                                                                                        &kp SPACE             &sk LEFT_ALT     &mo 7     &mo 8           &sk LEFT_ALT           &kp LA(BACKSPACE)
-                                                                                        &kp ENTER             &trans           &trans    &trans          &trans                 &kp BACKSPACE
+&rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_COLOR_HSB(0,100,5)  &rgb_ug RGB_EFR       &rgb_ug RGB_TOG       &rgb_ug RGB_EFF            &kp C_PREVIOUS  &kp C_PLAY_PAUSE      &kp C_NEXT             &kp C_MUTE                &kp C_VOLUME_DOWN             &kp C_VOLUME_UP
+&kp GRAVE        &kp N1           &kp N2                          &kp N3                &kp N4                &kp N5                     &kp N6          &kp N7                &kp N8                 &kp N9                    &kp N0                        &kp MINUS
+&kp TAB          &kp Q            &kp W                           &kp E                 &kp R                 &kp T                      &kp Y           &kp U                 &kp I                  &kp O                     &kp P                         &kp LEFT_BRACKET
+&kp ESCAPE       &hr_numbers 5 A  &rhr_mods LEFT_CONTROL S        &rhr_mods LEFT_ALT D  &rhr_mods LEFT_GUI F  &kp G                      &kp H           &rhr_mods LEFT_GUI J  &rhr_mods RIGHT_ALT K  &rhr_mods LEFT_CONTROL L  &hr_arrows 6 LS(NON_US_BSLH)  &kp LS(MINUS)
+&sk LEFT_SHIFT   &kp Z            &kp X                           &kp C                 &kp V                 &kp B                      &kp N           &kp M                 &kp COMMA              &kp DOT                   &kp SLASH                     &sk RIGHT_SHIFT
+                                  &trans                          &trans                                                                                                       &trans                 &trans
+                                                                                        &kp SPACE             &mo 4            &mo 7     &mo 8           &mo 4                 &kp LA(BACKSPACE)
+                                                                                        &kp ENTER             &trans           &trans    &trans          &trans                &kp BACKSPACE
             >;
         };
 
         win-qwertz_default-layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans                  &trans  &trans                             &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans                  &trans  &trans                             &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans                  &trans  &trans                             &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &hrm_right RIGHT_ALT K  &trans  &hrl_right 6 LS(NON_US_BACKSLASH)  &kp LS(MINUS)
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans                  &trans  &trans                             &trans
-                &trans  &trans                                            &trans                  &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans                 &trans  &trans                             &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans                 &trans  &trans                             &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans                 &trans  &trans                             &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &rhr_mods RIGHT_ALT K  &trans  &hr_arrows 6 LS(NON_US_BACKSLASH)  &kp LS(MINUS)
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans                 &trans  &trans                             &trans
+                &trans  &trans                                            &trans                 &trans
                                 &trans  &mo 2   &trans    &trans  &mo 2   &trans
                                 &trans  &trans  &trans    &trans  &trans  &trans
             >;
@@ -196,14 +196,14 @@
 
         macos-qwertz_default-layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans                  &trans  &trans                        &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans                  &trans  &trans                        &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans                  &trans  &trans                        &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &hrm_right RIGHT_ALT K  &trans  &hrl_right 6 LS(NON_US_BSLH)  &kp LS(MINUS)
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans                  &trans  &trans                        &trans
-                &trans  &trans                                            &trans                  &trans
-                                &trans  &mo 4   &trans    &trans  &mo 4   &trans
-                                &trans  &trans  &trans    &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans         &trans  &trans  &trans                  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans         &trans  &trans  &trans                  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans         &trans  &trans  &trans                  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans         &trans  &trans  &hr_arrows 6 SEMICOLON  &kp SINGLE_QUOTE
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans         &trans  &trans  &trans                  &trans
+                &trans  &trans                                                         &trans  &trans
+                                &trans  &sk LEFT_ALT  &trans    &trans  &sk RIGHT_ALT  &trans
+                                &trans  &trans        &trans    &trans  &trans         &trans
             >;
         };
 
@@ -291,7 +291,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // activate layer 8 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate layer 8 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 8 500>;
 };
 
@@ -299,12 +299,12 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 5 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 5 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 5>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
         <&zip_scroll_scaler 1 15>,
-        // This specifically scales the scroll events,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // This specifically scales the scroll events,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
